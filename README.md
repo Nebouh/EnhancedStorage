@@ -11,13 +11,15 @@ Created by **Nebouh** — powered by **MelonLoader** and **Harmony**.
 - Increases the slot count and number of display rows for storage racks.
 - Allows full customization per storage type via configuration.
 - Includes a global cap for total slot count to maintain balance.
+- Adds a "SORT" button to the storage menu UI.
+- Sorts items alphabetically with a single click.
 - Uses MelonPreferences for user-configurable settings.
 
 ---
 
 ## 🛠️ Technical Details
 
-This mod dynamically patches `Storage Methods` using Harmony to modify internal values such as:
+This mod dynamically patches storage-related methods using Harmony to modify internal values such as:
 
 - `SlotCount`
 - `DisplayRowCount`
@@ -37,6 +39,7 @@ Supported storage types:
 | Metal Square Table    | 3x1     | ✅            |
 | Safe                  | 8x2     | ✅ NEW        |
 | Coffee Table          | 3x1     | ✅ NEW        |
+| Pallet Stand          | 3x1     | ✅ NEW        |
 
 ---
 
@@ -48,7 +51,8 @@ Note:
 - "Slots" defines the number of inventory slots added to the object.
 - "Rows" defines how these slots are visually organized (split into rows).
 
-To enable the mod and apply custom settings, modify the configuration like this (Default settings):
+To enable the mod and apply custom settings, modify the configuration like this (example values):
+
 ```ini
 ["EnhancedStorage"]
 EnableMod = true
@@ -72,4 +76,6 @@ SafeSlots = 18
 SafeRows = 3
 CoffeeTableSlots = 6
 CoffeeTableRows = 1
+PalletStandSlots = 6
+PalletStandRows = 2
 ```

@@ -463,10 +463,23 @@
 
 	<ItemGroup>
 		<Compile Include="EnhancedStorage.cs" />
+		<Compile Include="StoragePatcher.cs" />
+		<Compile Include="StorageSettings.cs" />
+		<Compile Include="StorageSorter.cs" />
+		<Compile Include="StorageUIPatch.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>libs\Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 	
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">

@@ -1,9 +1,0 @@
-{
-  "name": "EnhancedStorage",
-  "version_number": "0.2.0",
-  "website_url": "https://github.com/Nebouh",
-  "description": "Expands and customizes storage capacities in Schedule I.",
-  "dependencies": [],
-  "game": "Schedule I",
-  "author": "Nebouh"
-}
