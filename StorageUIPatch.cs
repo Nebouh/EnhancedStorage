@@ -42,6 +42,17 @@ namespace EnhancedStorageMod
             }
         }
 
+        public class SortButtonHandler : MonoBehaviour
+{
+    public object targetStorage;
+
+    public void OnClick()
+    {
+        StorageSorter.SortAlphabetically(targetStorage);
+    }
+}
+
+
         private static void OnStorageMenuOpen(object __instance)
         {
             try
@@ -69,9 +80,17 @@ namespace EnhancedStorageMod
                 var button = sortButton.GetComponent<Button>();
                 button.onClick.RemoveAllListeners();
 
-                var storageEntityField = __instance.GetType().GetField("storage", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-                var capturedStorageEntity = storageEntityField?.GetValue(__instance);
-                button.onClick.AddListener(() => StorageSorter.SortAlphabetically(capturedStorageEntity));
+                var property = __instance.GetType().GetProperty("OpenedStorageEntity", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                var capturedStorageEntity = property?.GetValue(__instance);
+
+                if (capturedStorageEntity == null)
+                {
+                    MelonLogger.Error("Captured storage entity is null.");
+                    return;
+                }
+
+                void Sort() => StorageSorter.SortAlphabetically(capturedStorageEntity);
+                button.onClick.AddListener((UnityAction)Sort);
             }
             catch (Exception ex)
             {
