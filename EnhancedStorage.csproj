@@ -465,8 +465,6 @@
 		<Compile Include="EnhancedStorage.cs" />
 		<Compile Include="StoragePatcher.cs" />
 		<Compile Include="StorageSettings.cs" />
-		<Compile Include="StorageSorter.cs" />
-		<Compile Include="StorageUIPatch.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
